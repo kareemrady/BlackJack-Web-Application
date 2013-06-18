@@ -31,3 +31,18 @@ post '/game' do
 
 end
 
+post '/hit' do
+session[:player_cards] << session[:deck].pop
+session[:dealer_cards] << session[:deck].pop
+erb :hit, :layout => false
+end
+
+post '/stay' do
+session[:player_cards] 
+session[:dealer_cards] 
+erb :stay, :layout => false
+end
+
+
+
+

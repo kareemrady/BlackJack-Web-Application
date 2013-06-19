@@ -63,16 +63,17 @@
  <div class="span12">  	
 <h1>Hi <%= session[:new_player].capitalize %>, Welcome to Black Jack</h1>
 <h4>Dealer Cards</h4>
-<p>Dealer Score = <%=session[:dealer_score]%></p>
 </br>
-<% session[:dealer_cards].each do |card| %>
+<% card = session[:dealer_cards].last %>
+
 <% suit = card[0] %>
 <% h = {"D" => "diamonds", "S" => "spades", "C" => "clubs", "H" => "hearts"} %>
 <% value = card[1] %>
 <% v = {"A" => "ace", "K" => "king", "Q" => "queen", "J" => "jack", "2" => "2", "3" => "3", "4" => "4", "5" => "5", "6" => "6", "7" => "7", "8" => "8", "9" => "9", "10" => "10"} %>
+<img src= "images/cards/cover.jpg" />
 <% source = "images/cards/#{h[suit]}_#{v[value]}.jpg" %>
 	<img src= <%= source%>/>
-<% end %>
+
 </div>
 </div>
 <div class="row"> 

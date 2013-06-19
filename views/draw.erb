@@ -9,7 +9,6 @@
 
     <!-- Le styles -->
     <link href="vendor/css/bootstrap.css" rel="stylesheet">
-    <link href="application.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -59,33 +58,31 @@
       </div>
     </div>
 
-    <div class="container">
-
+  <div class="container">
 <div class="row"> 
  <div class="span12">
+  <h1>It's a Draw!!! </h1>
 <h4>Dealer Cards</h4>
+<p>Dealer Score = <%=session[:dealer_score]%></p>
 </br>
-<% card = session[:dealer_cards].last %>
 
+<% session[:dealer_cards].each do |card| %>
 <% suit = card[0] %>
 <% h = {"D" => "diamonds", "S" => "spades", "C" => "clubs", "H" => "hearts"} %>
 <% value = card[1] %>
 <% v = {"A" => "ace", "K" => "king", "Q" => "queen", "J" => "jack", "2" => "2", "3" => "3", "4" => "4", "5" => "5", "6" => "6", "7" => "7", "8" => "8", "9" => "9", "10" => "10"} %>
-<img src= "images/cards/cover.jpg" />
 <% source = "images/cards/#{h[suit]}_#{v[value]}.jpg" %>
-  <img src= <%= source%>/>
-
+	<img src= <%= source%>/>
+<% end %>
 </div>
 </div>
-
 
 
 <div class="row"> 
  <div class="span12">
-  
+ 	
 <h4>Player Cards</h4>
 <p>Player Score = <%=session[:player_score]%></p>
-
 </br>
 
 <% session[:player_cards].each do |card| %>
@@ -94,16 +91,12 @@
 <% value = card[1] %>
 <% v = {"A" => "ace", "K" => "king", "Q" => "queen", "J" => "jack", "2" => "2", "3" => "3", "4" => "4", "5" => "5", "6" => "6", "7" => "7", "8" => "8", "9" => "9", "10" => "10"} %>
 <% source = "images/cards/#{h[suit]}_#{v[value]}.jpg" %>
-  <img src= <%= source%>/>
-  <% end %>
+	<img src= <%= source%>/>
+	<% end %>
+
+
 </div>
 </div>
-<form action="/hit" method="post">
-<input type="submit"class="btn" value="Hit" width="10px" />
-</form>
-<form action="/stay" method="post">
-<input type="submit" class="btn" value="Stay" width="10px" />
-</form>
 </div>
 </body>
 </html>

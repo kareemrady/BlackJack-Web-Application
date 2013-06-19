@@ -98,7 +98,7 @@ redirect '/draw' if session[:player_score] == session[:dealer_score]
 
 redirect '/player_won' if (session[:player_score] - 21).abs < (session[:dealer_score] - 21).abs
 
-redirect '/dealer_won' if (session[:player_score] - 21).abs > (sesssion[:dealer_score] - 21).abs
+redirect '/dealer_won' if (session[:player_score] - 21).abs > (session[:dealer_score] - 21).abs
 
 
 erb :hit, :layout => false
@@ -136,7 +136,7 @@ redirect '/draw' if session[:player_score] == session[:dealer_score]
 
 redirect '/player_won' if (session[:player_score] - 21).abs < (session[:dealer_score] - 21).abs
 
-redirect '/dealer_won' if (session[:player_score] - 21).abs > (sesssion[:dealer_score] - 21).abs
+redirect '/dealer_won' if (session[:player_score] - 21).abs > (session[:dealer_score] - 21).abs
 
 erb :stay, :layout => false
 end
